@@ -1,0 +1,23 @@
+{
+    "name" : "memory-agape/memoin",
+    "description" : "Easy to use virtual currency APIs",
+    "keywords" : ["Virtual Currency", "virtual", "currency", "API", "SDK"],
+    "homepage" : "https://portfolio.mem.ooo",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "memory-agape"
+        }
+    ],
+    "require" : {
+        "php": ">=7.0",
+        "guzzlehttp/guzzle": "^6.3",
+        "pubnub/pubnub": "~4.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Memoin\\": "src/"
+        }
+    }
+}
