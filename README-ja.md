@@ -24,13 +24,13 @@ composer require memory-agape/memoin
 
 # Examples
 
-- exmplesを見てください。 
+- examplesを見てください。
 
-# Donate
+# Donations
 
 - 募金ぜひ欲しいです！開発の支えになります。
 - 開発者のビットコインアドレスは **321KChd61h3kp7XfkGz6rWiSNdhZiJMxSf** です。
 
-# Issue and Pull request
+# Issues and Pull requests
 
 - 追加機能がほしかったり、バグを修正したよというプルリクエストは大歓迎です。ぜひ開発にご協力ください。
