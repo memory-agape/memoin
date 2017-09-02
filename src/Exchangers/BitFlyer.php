@@ -97,7 +97,7 @@ class BitFlyer extends Base {
      *
      * @param string $name currency name
      * @param string $from trade from currency name
-     * @return array return currency information
+     * @return object return currency information
      */
     public function getCurrency ($name, $from = Currency::JPY) {
         if (empty($this->markets)) {
@@ -132,7 +132,7 @@ class BitFlyer extends Base {
                 }
             }
 
-            return [
+            return (object) [
                 'middle' => $board->mid_price ?? null,
                 'bid' => $bid->price ?? null,
                 'ask' => $ask->price ?? null,
@@ -142,7 +142,7 @@ class BitFlyer extends Base {
                 ],
             ];
         }
-        return [
+        return (object) [
             'middle' => null,
             'bid' => null,
             'ask' => null,
