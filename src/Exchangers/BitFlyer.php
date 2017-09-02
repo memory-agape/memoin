@@ -111,23 +111,23 @@ class BitFlyer extends Base {
             $bid = $board->bids[0] ?? null;
             $ask = $board->asks[0] ?? null;
 
-            $tradeBuy = null;
+            $tradeBid = null;
             $tradeAsk = null;
 
             if (isset($bid->price, $bid->size, $ask->price, $ask->size)) {
                 if (function_exists('bcmul')) {
 
-                    $tradeBuy = bcmul($bid->price, $bid->size, 30);
+                    $tradeBid = bcmul($bid->price, $bid->size, 30);
                     $tradeAsk = bcmul($ask->price, $ask->size, 30);
 
                 } else if (function_exists('gmp_mul')) {
 
-                    $tradeBuy = (string) gmp_mul(gmp_init($bid->price, 10), gmp_init($bid->size, 10));
+                    $tradeBid = (string) gmp_mul(gmp_init($bid->price, 10), gmp_init($bid->size, 10));
                     $tradeAsk = (string) gmp_mul(gmp_init($ask->price, 10), gmp_init($ask->size, 10));
 
                 } else {
 
-                    $tradeBuy = (string) ($bid->price / $bid->size);
+                    $tradeBid = (string) ($bid->price / $bid->size);
                     $tradeAsk = (string) ($ask->price / $ask->size);
                 }
             }
@@ -137,7 +137,7 @@ class BitFlyer extends Base {
                 'bid' => $bid->price ?? null,
                 'ask' => $ask->price ?? null,
                 'trade' => (object) [
-                    'bid' => $tradeBuy,
+                    'bid' => $tradeBid,
                     'ask' => $tradeAsk,
                 ],
             ];
