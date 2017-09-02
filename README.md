@@ -1,6 +1,7 @@
 # What is memoin
-memoin (this project) concept is easy to use virtual currency exchanger APIs.
-Which is optimized use to easy as virtual currency exchangers APIs.
+memoin (this project) is an SDK for PHP which is made to support many virtual
+currency exchangers. memoin utilizes API provided by exchangers in order that
+the system makes it possible to optimize transactions over virtual currencies.
 
 # Requirements
 
@@ -10,7 +11,7 @@ Which is optimized use to easy as virtual currency exchangers APIs.
 
 # Installation
 
-Run under command, And after you can use APIs.
+Run the command below to get started.
 
 ```
 composer require memory-agape/memoin
@@ -18,18 +19,19 @@ composer require memory-agape/memoin
 
 # Supports
 
-- BitFlyer supported only（Will be support other exchangers.）
-- Supported streaming API
+- BitFlyer only (Will support other exchangers)
+- Supports Streaming API
 - See: https://lightning.bitflyer.com/docs?lang=en
 
 # Examples
 
-- See examples 
+- See examples
 
-# Donate
+# Donations
 
-- I want donate!! please remittance to my bit coin address (**321KChd61h3kp7XfkGz6rWiSNdhZiJMxSf**)
+- Donations are always welcome. They help me develop.
+- Please make remittance to my bitcoin address (**321KChd61h3kp7XfkGz6rWiSNdhZiJMxSf**)
 
-# Issue and Pull request
+# Issues and Pull requests
 
-- If you have new ideas, or found bugs? Welcome to join this project!
+- Have new ideas, or found bugs? Join this project!
