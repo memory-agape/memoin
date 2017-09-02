@@ -46,7 +46,7 @@ class Manipulator {
                 case $action === 'get':
                     $result = [];
                     foreach ($this->exchangers as $exchanger) {
-                        $result[$exchanger->getExchanger()->getName()] = $exchanger->getExchanger()->getCurrency($definedCurrencies[$currency]);
+                        $result[$exchanger->getExchanger()->getName()] = $exchanger->getExchanger()->getAdapter()->getCurrency($definedCurrencies[$currency]);
                     }
                     return $result;
             }

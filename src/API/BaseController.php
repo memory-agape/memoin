@@ -4,7 +4,7 @@ use Memoin\Exceptions;
 use Memoin\Credentials\Credential;
 use Memoin\Enums\Currency;
 
-class Base {
+class BaseController {
 
     /**
      * API Endpoint
@@ -46,6 +46,15 @@ class Base {
     }
 
     /**
+     * get API Adapter
+     *
+     * @return BaseAdapter
+     */
+    public function getAdapter () {
+        return new BaseAdapter($this);
+    }
+
+    /**
      * Set credential
      *
      * @param Credential $credential credential
@@ -54,16 +63,6 @@ class Base {
     public function setCredential (Credential $credential) {
         $this->credential = $credential;
         return $this;
-    }
-
-    /**
-     * Get currency (Maybe override from exchangers class)
-     *
-     * @param string $name trade to currency name
-     * @return string|null
-     */
-    public function getCurrency ($name) {
-        return null;
     }
 
     /**
@@ -105,7 +104,7 @@ class Base {
      * @param string $api The API
      * @param array $extendHeaders extend headers for request (or override)
      * @param array|null $body send body
-     * @return Object return json decoded object
+     * @return mixed return json decoded object
      */
     public function get ($api, array $extendHeaders = [], $body = null) {
         return $this->call($api, 'GET', true, $extendHeaders, $body);
@@ -117,7 +116,7 @@ class Base {
      * @param string $api The API
      * @param array $extendHeaders extend headers for request (or override)
      * @param array|null $body send body
-     * @return Object return json decoded object
+     * @return mixed return json decoded object
      */
     public function post ($api, array $extendHeaders = [], $body = null) {
         return $this->call($api, 'POST', true, $extendHeaders, $body);
