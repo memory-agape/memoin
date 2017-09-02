@@ -15,45 +15,76 @@ class BaseAdapter {
         $this->controller = $controller;
     }
 
+    /**
+     * @return BaseController|null
+     */
     public function getController () {
         return $this->controller;
     }
 
-
+    /**
+     * @return Adapters\Boards
+     */
     public function getBoards () {
-        return null;
+        return new Adapters\Boards();
     }
 
+    /**
+     * @return Adapters\Tickers
+     */
     public function getTickers () {
-        return null;
+        return new Adapters\Tickers();
     }
 
+    /**
+     * @return Adapters\Addresses
+     */
     public function getAddresses () {
-        return null;
+        return new Adapters\Addresses();
     }
 
+    /**
+     * @return Adapters\BankAccounts
+     */
     public function getBankAccounts () {
-        return null;
+        return new Adapters\BankAccounts();
     }
 
+    /**
+     * @return Adapters\Withdraw
+     */
     public function withdraws () {
-        return null;
+        return new Adapters\Withdraw();
     }
 
+    /**
+     * @return Adapters\Order
+     */
     public function order () {
-        return null;
+        return new Adapters\Order();
     }
 
-    public function orders () {
-        return null;
+    /**
+     * @return Adapters\OrderHistories
+     */
+    public function orderHistories () {
+        return new Adapters\OrderHistories();
     }
 
-    public function cancelOrder () {
-        return null;
+    /**
+     * @return Adapters\OrderCancel
+     */
+    public function orderCancel () {
+        return new Adapters\OrderCancel();
     }
 
+    /**
+     * @param $name
+     * @param string $from
+     * @return Adapters\Currency
+     */
     public function getCurrency ($name, $from = Currency::JPY) {
-        return null;
+        return new Adapters\Currency();
     }
 
 }
