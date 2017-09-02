@@ -8,6 +8,14 @@ memoin (めもいん) とは多くの仮想通貨取引所をシステムのみ�
 - Composer
 - GuzzleHttp
 
+# Installation
+
+下記のコマンドを実行して、インストールしてください。
+
+```
+composer require memory-agape/memoin
+```
+
 # Supports
 
 - 現在はBitFlyerのAPIのみ対応しています。（将来的には他の取引所のAPIも対応する予定です。）

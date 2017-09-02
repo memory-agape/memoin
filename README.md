@@ -8,6 +8,14 @@ Which is optimized use to easy as virtual currency exchangers APIs.
 - Composer
 - GuzzleHttp
 
+# Installation
+
+Run under command, And after you can use APIs.
+
+```
+composer require memory-agape/memoin
+```
+
 # Supports
 
 - BitFlyer supported only（Will be support other exchangers.）
