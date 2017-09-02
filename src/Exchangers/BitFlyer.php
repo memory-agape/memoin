@@ -108,46 +108,46 @@ class BitFlyer extends Base {
         $productCode = $name . '_' . $from;
         if (in_array($productCode, $this->markets)) {
             $board = $this->get('/v1/board?product_code=' . $productCode);
-            $buy = $board->bids[0] ?? null;
+            $bid = $board->bids[0] ?? null;
             $ask = $board->asks[0] ?? null;
 
             $tradeBuy = null;
             $tradeAsk = null;
 
-            if (isset($buy->price, $buy->size, $ask->price, $ask->size)) {
+            if (isset($bid->price, $bid->size, $ask->price, $ask->size)) {
                 if (function_exists('bcmul')) {
 
-                    $tradeBuy = bcmul($buy->price, $buy->size, 30);
+                    $tradeBuy = bcmul($bid->price, $bid->size, 30);
                     $tradeAsk = bcmul($ask->price, $ask->size, 30);
 
                 } else if (function_exists('gmp_mul')) {
 
-                    $tradeBuy = (string) gmp_mul(gmp_init($buy->price, 10), gmp_init($buy->size, 10));
+                    $tradeBuy = (string) gmp_mul(gmp_init($bid->price, 10), gmp_init($bid->size, 10));
                     $tradeAsk = (string) gmp_mul(gmp_init($ask->price, 10), gmp_init($ask->size, 10));
 
                 } else {
 
-                    $tradeBuy = (string) ($buy->price / $buy->size);
+                    $tradeBuy = (string) ($bid->price / $bid->size);
                     $tradeAsk = (string) ($ask->price / $ask->size);
                 }
             }
 
             return [
                 'middle' => $board->mid_price ?? null,
-                'buy' => $buy->price ?? null,
+                'bid' => $bid->price ?? null,
                 'ask' => $ask->price ?? null,
                 'trade' => (object) [
-                    'buy' => $tradeBuy,
+                    'bid' => $tradeBuy,
                     'ask' => $tradeAsk,
                 ],
             ];
         }
         return [
             'middle' => null,
-            'buy' => null,
+            'bid' => null,
             'ask' => null,
             'trade' => (object) [
-                'buy' => null,
+                'bid' => null,
                 'ask' => null,
             ],
         ];
