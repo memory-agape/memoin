@@ -1,6 +1,6 @@
 <?php
 namespace Memoin\API\Adapters;
 
-class BankAccounts {
+class BankAccounts extends BaseCaller {
 
 }

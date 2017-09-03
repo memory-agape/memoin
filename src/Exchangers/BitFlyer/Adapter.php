@@ -1,7 +1,8 @@
 <?php
 
 namespace Memoin\Exchangers\BitFlyer;
-use Memoin\API\BaseAdapter;
+use Memoin\API\Adapters\BaseAdapter;
+use Memoin\Enums\Currency;
 
 class Adapter extends BaseAdapter {
 
@@ -12,7 +13,7 @@ class Adapter extends BaseAdapter {
      * @param string $from trade from currency name
      * @return object return currency information
      */
-    public function getCurrency ($name, $from = Currency::JPY) {
+    public function getCurrencies ($name, $from = Currency::JPY) {
         if (empty($this->markets)) {
             $this->markets = array_unique(array_map(function ($data) {
                 return $data->product_code;

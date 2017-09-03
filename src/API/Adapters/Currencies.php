@@ -1,6 +1,6 @@
 <?php
 namespace Memoin\API\Adapters;
 
-class OrderCancel {
+class Currencies extends BaseCaller {
 
 }

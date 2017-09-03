@@ -1,6 +1,6 @@
 <?php
 namespace Memoin\API\Adapters;
 
-class Boards {
+class Boards extends BaseCaller {
 
 }

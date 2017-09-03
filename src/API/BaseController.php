@@ -3,6 +3,7 @@ namespace Memoin\API;
 use Memoin\Exceptions;
 use Memoin\Credentials\Credential;
 use Memoin\Enums\Currency;
+use Memoin\API\Adapters\BaseAdapter;
 
 class BaseController {
 

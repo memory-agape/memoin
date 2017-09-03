@@ -1,6 +1,6 @@
 <?php
 namespace Memoin\API\Adapters;
 
-class Withdraw {
+class Withdraws extends BaseCaller {
 
 }

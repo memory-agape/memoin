@@ -1,6 +1,6 @@
 <?php
 namespace Memoin\API\Adapters;
 
-class Tickers {
+class Tickers extends BaseCaller {
 
 }
