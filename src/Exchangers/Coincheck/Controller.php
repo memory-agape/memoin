@@ -33,7 +33,7 @@ class Controller extends BaseController
 
 
     /**
-     * Call any bitFlyer APIs
+     * Call any Coincheck APIs
      *
      * @param string $api The API
      * @param string $method GET, POST and other method
@@ -89,7 +89,7 @@ class Controller extends BaseController
     }
 
     /**
-     * Show realtime streaming for bitFlyer
+     * Show realtime streaming for Coincheck
      *
      * @param Streaming $streaming Set callback class
      * @param string $name trade to currency name
