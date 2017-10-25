@@ -2,11 +2,18 @@
 namespace Memoin\Core;
 use Memoin\Credentials\Credential;
 
-class Exchanger {
+class Exchanger
+{
 
     private $exchanger = null;
 
-    public function __construct ($exchangerName, Credential $credential = null) {
+    /**
+     * Exchanger constructor.
+     * @param $exchangerName
+     * @param Credential|null $credential
+     */
+    public function __construct ($exchangerName, Credential $credential = null)
+    {
         $path = __DIR__ . '/../Exchangers/' . $exchangerName . '/Controller.php';
         if (!is_file($path)) throw new \RuntimeException('Not found exchanger controller "' . $exchangerName . '"');
 

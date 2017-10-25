@@ -3,25 +3,31 @@ namespace Memoin\API;
 use Memoin\Exceptions;
 use Memoin\Credentials\Credential;
 
-class Streaming {
+class Streaming
+{
 
-    public function connect () {
-
-    }
-
-    public function disconnect () {
+    public function connect ()
+    {
 
     }
 
-    public function receive ($message) {
+    public function disconnect ()
+    {
 
     }
 
-    public function presence ($presence) {
+    public function receive ($message)
+    {
 
     }
 
-    public function error () {
+    public function presence ($presence)
+    {
+
+    }
+
+    public function error ()
+    {
 
     }
 

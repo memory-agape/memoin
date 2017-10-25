@@ -2,7 +2,8 @@
 namespace Memoin\Credentials;
 use Memoin\Exceptions;
 
-class Credential {
+class Credential
+{
 
     /**
      * @var array credential parameters
@@ -13,7 +14,8 @@ class Credential {
      * Credential constructor.
      * @param array $parameters
      */
-    public function __construct (array $parameters) {
+    public function __construct (array $parameters)
+    {
         $this->parameters = $parameters;
     }
 
@@ -25,7 +27,8 @@ class Credential {
      * @return bool|mixed
      * @throws Exceptions\Credential
      */
-    public function __call ($name, $arguments) {
+    public function __call ($name, $arguments)
+    {
         if (preg_match('/\A(get|has)([A-Z].*)\z/', $name, $matches)) {
             $action = trim($matches[1]);
             $value = strtoupper(ltrim(preg_replace('/([A-Z])/', '_$1', $matches[2]), '_'));

@@ -2,7 +2,8 @@
 
 namespace Memoin\Enums;
 
-class Currency {
+class Currency
+{
 
     /**
      * JPY

@@ -20,7 +20,8 @@ use PubNub\Enums\PNStatusCategory;
 use PubNub\Callbacks\SubscribeCallback;
 use PubNub\PNConfiguration;
 
-class Controller extends BaseController {
+class Controller extends BaseController
+{
 
     const ENDPOINT = 'https://api.bitFlyer.jp/';
     const PUB_NUB_SUBSCRIBE_KEY = 'sub-c-52a9ab50-291b-11e5-baaa-0619f8945a4f';
@@ -34,7 +35,8 @@ class Controller extends BaseController {
      * @return $this
      * @throws Exceptions\Credential
      */
-    public function setCredential(Credential $credential) {
+    public function setCredential(Credential $credential)
+    {
         if (!$credential->hasApiKey()) throw new Exceptions\Credential('Undefined API Key for credential');
         if (!$credential->hasApiSecret()) throw new Exceptions\Credential('Undefined API Secret for credential');
         parent::setCredential($credential);
@@ -56,7 +58,8 @@ class Controller extends BaseController {
      * @return Object return json decoded object
      * @throws Exceptions\Credential
      */
-    public function call ($api, $method, $auth = true, array $extendHeaders = [], $body = null) {
+    public function call ($api, $method, $auth = true, array $extendHeaders = [], $body = null)
+    {
         $headers = [
             'Content-Type' => 'application/json',
         ];
@@ -82,7 +85,8 @@ class Controller extends BaseController {
      * @param array|null $body send body
      * @return Object return json decoded object
      */
-    public function post ($api, array $extendHeaders = [], $body = null) {
+    public function post ($api, array $extendHeaders = [], $body = null)
+    {
         return $this->call($api, 'POST', true, $extendHeaders, is_array($body) ? json_encode($body) : null);
     }
 
@@ -94,7 +98,8 @@ class Controller extends BaseController {
      * @param array|null $body send body
      * @return Object return json decoded object
      */
-    public function get ($api, array $extendHeaders = [], $body = null) {
+    public function get ($api, array $extendHeaders = [], $body = null)
+    {
         return $this->call($api, 'GET', true, $extendHeaders, is_array($body) ? json_encode($body) : null);
     }
 
@@ -106,7 +111,8 @@ class Controller extends BaseController {
      * @param string $from trade from currency name
      * @return void
      */
-    public function streaming (Streaming $streaming, $name, $from = Currency::JPY) {
+    public function streaming (Streaming $streaming, $name, $from = Currency::JPY)
+    {
 
         $pnconf = new PNConfiguration();
         $pnconf->setSubscribeKey(self::PUB_NUB_SUBSCRIBE_KEY);

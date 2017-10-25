@@ -4,7 +4,8 @@ namespace Memoin\Exchangers\bitFlyer;
 use Memoin\API\Adapters\BaseAdapter;
 use Memoin\Enums\Currency;
 
-class Adapter extends BaseAdapter {
+class Adapter extends BaseAdapter
+{
 
     /**
      * Get currency middle price, pay price, ask price and traded prices.
@@ -13,7 +14,8 @@ class Adapter extends BaseAdapter {
      * @param string $from trade from currency name
      * @return object return currency information
      */
-    public function getCurrencies ($name, $from = Currency::JPY) {
+    public function getCurrencies ($name, $from = Currency::JPY)
+    {
         if (empty($this->markets)) {
             $this->markets = array_unique(array_map(function ($data) {
                 return $data->product_code;

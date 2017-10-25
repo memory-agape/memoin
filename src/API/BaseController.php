@@ -6,7 +6,8 @@ use Memoin\Credentials\Credential;
 use Memoin\Enums\Currency;
 use Memoin\API\Adapters\BaseAdapter;
 
-class BaseController {
+class BaseController
+{
 
     /**
      * API Endpoint
@@ -31,7 +32,8 @@ class BaseController {
     /**
      * API Base constructor
      */
-    public function __construct () {
+    public function __construct ()
+    {
         $this->client = new \GuzzleHttp\Client([
             'base_uri' => $this::ENDPOINT,
             'timeout' => $this::TIMEOUT ?? self::TIMEOUT,
@@ -43,7 +45,8 @@ class BaseController {
      *
      * @return string return exchanger class name
      */
-    public function getName () {
+    public function getName ()
+    {
         return basename(str_replace('\\', DIRECTORY_SEPARATOR, get_class($this)));
     }
 
@@ -52,7 +55,8 @@ class BaseController {
      *
      * @return BaseAdapter
      */
-    public function getAdapter () {
+    public function getAdapter ()
+    {
         return new BaseAdapter($this);
     }
 
@@ -62,7 +66,8 @@ class BaseController {
      * @param Credential $credential credential
      * @return BaseController
      */
-    public function setCredential (Credential $credential) {
+    public function setCredential (Credential $credential)
+    {
         $this->credential = $credential;
         return $this;
     }
@@ -79,7 +84,8 @@ class BaseController {
      * @throws \GuzzleHttp\Exception\ClientException
      * @throws Exceptions\API
      */
-    public function call ($api, $method, $auth = true, array $extendHeaders = [], $body = null) {
+    public function call ($api, $method, $auth = true, array $extendHeaders = [], $body = null)
+    {
         try {
 
             $options = [
@@ -108,7 +114,8 @@ class BaseController {
      * @param array|null $body send body
      * @return mixed return json decoded object
      */
-    public function get ($api, array $extendHeaders = [], $body = null) {
+    public function get ($api, array $extendHeaders = [], $body = null)
+    {
         return $this->call($api, 'GET', true, $extendHeaders, $body);
     }
 
@@ -120,7 +127,8 @@ class BaseController {
      * @param array|null $body send body
      * @return mixed return json decoded object
      */
-    public function post ($api, array $extendHeaders = [], $body = null) {
+    public function post ($api, array $extendHeaders = [], $body = null)
+    {
         return $this->call($api, 'POST', true, $extendHeaders, $body);
     }
 
@@ -132,7 +140,8 @@ class BaseController {
      * @param string $from trade from currency name
      * @return void
      */
-    public function streaming (Streaming $streaming, $name, $from = Currency::JPY) {
+    public function streaming (Streaming $streaming, $name, $from = Currency::JPY)
+    {
         return null;
     }
 
