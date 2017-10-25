@@ -52,7 +52,6 @@ class Controller extends BaseController
             if (empty($this->credential)) throw new Exceptions\Credential('You must be set credential which use method "$class->setCredential" or set first argument from constructor');
             $timestamp = time();
             $text = $timestamp . rtrim(self::ENDPOINT, '/') . $api . ($body ?? '');
-            var_dump($text);
             $headers = array_merge($headers, [
                 'ACCESS-KEY' => $this->credential->getApiKey(),
                 'ACCESS-NONCE' => $timestamp,
