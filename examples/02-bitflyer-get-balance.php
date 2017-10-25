@@ -9,4 +9,4 @@ $exchanger = (new Memoin\Core\Exchanger('bitFlyer', new Memoin\Credentials\Crede
     'API_SECRET' => 'API_SECRET_HERE',
 ])))->getExchanger();
 
-print_r($exchanger->get('/v1/getbalance'));
+print_r($exchanger->get('/v1/me/getbalance'));
