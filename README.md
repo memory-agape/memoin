@@ -19,9 +19,10 @@ composer require memory-agape/memoin
 
 # Supports
 
-- bitFlyer only (Will support other exchangers)
-- Supports Streaming API
+- bitFlyer and Coincheck (Will support other exchangers)
+- Supports Streaming API (bitFlyer only)
 - See: https://lightning.bitFlyer.com/docs?lang=en
+- See: https://coincheck.com/ja/documents/exchange/api
 
 # Examples
 

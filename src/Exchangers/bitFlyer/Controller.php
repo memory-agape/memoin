@@ -87,7 +87,7 @@ class Controller extends BaseController
      */
     public function post ($api, array $extendHeaders = [], $body = null)
     {
-        return $this->call($api, 'POST', true, $extendHeaders, is_array($body) ? json_encode($body) : null);
+        return $this->call($api, 'POST', true, $extendHeaders, is_array($body) ? json_encode($body) : $body);
     }
 
     /**
@@ -100,7 +100,7 @@ class Controller extends BaseController
      */
     public function get ($api, array $extendHeaders = [], $body = null)
     {
-        return $this->call($api, 'GET', true, $extendHeaders, is_array($body) ? json_encode($body) : null);
+        return $this->call($api, 'GET', true, $extendHeaders, is_array($body) ? json_encode($body) : $body);
     }
 
     /**
