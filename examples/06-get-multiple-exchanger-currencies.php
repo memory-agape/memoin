@@ -4,15 +4,15 @@ include __DIR__ . '/vendor/autoload.php';
 
 // create manipulator for multiple exchangers
 $manipulator = new Memoin\Core\Manipulator([
-    new Memoin\Core\Exchanger('BitFlyer', new Memoin\Credentials\Credential([
+    new Memoin\Core\Exchanger('bitFlyer', new Memoin\Credentials\Credential([
         'API_KEY'   => 'API_KEY_HERE',
         'API_SECRET' => 'API_SECRET_HERE',
     ])),
-    new Memoin\Core\Exchanger('BitFlyer', new Memoin\Credentials\Credential([
+    new Memoin\Core\Exchanger('bitFlyer', new Memoin\Credentials\Credential([
         'API_KEY'   => 'API_KEY_HERE',
         'API_SECRET' => 'API_SECRET_HERE',
     ])),
-    new Memoin\Core\Exchanger('BitFlyer', new Memoin\Credentials\Credential([
+    new Memoin\Core\Exchanger('bitFlyer', new Memoin\Credentials\Credential([
         'API_KEY'   => 'API_KEY_HERE',
         'API_SECRET' => 'API_SECRET_HERE',
     ])),

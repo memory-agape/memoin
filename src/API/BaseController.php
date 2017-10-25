@@ -1,5 +1,6 @@
 <?php
 namespace Memoin\API;
+use Memoin\API\Adapters\BaseCaller;
 use Memoin\Exceptions;
 use Memoin\Credentials\Credential;
 use Memoin\Enums\Currency;
@@ -59,7 +60,7 @@ class BaseController {
      * Set credential
      *
      * @param Credential $credential credential
-     * @return $this
+     * @return BaseController
      */
     public function setCredential (Credential $credential) {
         $this->credential = $credential;

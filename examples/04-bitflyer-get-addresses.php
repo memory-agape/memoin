@@ -3,7 +3,7 @@
 // include autoloader by composer
 include __DIR__ . '/vendor/autoload.php';
 
-$exchanger = (new Memoin\Core\Exchanger('BitFlyer', new Memoin\Credentials\Credential([
+$exchanger = (new Memoin\Core\Exchanger('bitFlyer', new Memoin\Credentials\Credential([
     'API_KEY'   => 'API_KEY_HERE',
     'API_SECRET' => 'API_SECRET_HERE',
 ])))->getExchanger();

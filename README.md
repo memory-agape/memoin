@@ -19,9 +19,9 @@ composer require memory-agape/memoin
 
 # Supports
 
-- BitFlyer only (Will support other exchangers)
+- bitFlyer only (Will support other exchangers)
 - Supports Streaming API
-- See: https://lightning.bitflyer.com/docs?lang=en
+- See: https://lightning.bitFlyer.com/docs?lang=en
 
 # Examples
 

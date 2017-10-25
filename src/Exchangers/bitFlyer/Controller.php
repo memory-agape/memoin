@@ -1,5 +1,5 @@
 <?php
-namespace Memoin\Exchangers\BitFlyer;
+namespace Memoin\Exchangers\bitFlyer;
 
 use Memoin\API\BaseController;
 use Memoin\API\Streaming;
@@ -22,22 +22,23 @@ use PubNub\PNConfiguration;
 
 class Controller extends BaseController {
 
-    const ENDPOINT = 'https://api.bitflyer.jp/';
-    const PUB_NUb_SUBSCRIBE_KEY = 'sub-c-52a9ab50-291b-11e5-baaa-0619f8945a4f';
+    const ENDPOINT = 'https://api.bitFlyer.jp/';
+    const PUB_NUB_SUBSCRIBE_KEY = 'sub-c-52a9ab50-291b-11e5-baaa-0619f8945a4f';
 
     private $markets = [];
 
     /**
      * Set credential
      *
-     * @param Credential $credential set Bitflyer credential
+     * @param Credential $credential set bitFlyer credential
      * @return $this
      * @throws Exceptions\Credential
      */
     public function setCredential(Credential $credential) {
         if (!$credential->hasApiKey()) throw new Exceptions\Credential('Undefined API Key for credential');
         if (!$credential->hasApiSecret()) throw new Exceptions\Credential('Undefined API Secret for credential');
-        return parent::setCredential($credential);
+        parent::setCredential($credential);
+        return $this;
     }
 
     public function getAdapter () {
@@ -45,7 +46,7 @@ class Controller extends BaseController {
     }
 
     /**
-     * Call any BitFlyer APIs
+     * Call any bitFlyer APIs
      *
      * @param string $api The API
      * @param string $method GET, POST and other method
@@ -98,7 +99,7 @@ class Controller extends BaseController {
     }
 
     /**
-     * Show realtime streaming for BitFlyer
+     * Show realtime streaming for bitFlyer
      *
      * @param Streaming $streaming Set callback class
      * @param string $name trade to currency name
@@ -108,13 +109,13 @@ class Controller extends BaseController {
     public function streaming (Streaming $streaming, $name, $from = Currency::JPY) {
 
         $pnconf = new PNConfiguration();
-        $pnconf->setSubscribeKey(self::PUB_NUb_SUBSCRIBE_KEY);
+        $pnconf->setSubscribeKey(self::PUB_NUB_SUBSCRIBE_KEY);
         
         // dummy value (PubNub for PHP SDK has many problems...)
-        $pnconf->setPublishKey('bitflyer');
+        $pnconf->setPublishKey('bitFlyer');
 
         $pubnub = new PubNub($pnconf);
-        $pubnub->setLogger((new Logger('BitFlyer'))->pushHandler(new StreamHandler(fopen('php://output', 'r'), Logger::EMERGENCY)));
+        $pubnub->setLogger((new Logger('bitFlyer'))->pushHandler(new StreamHandler(fopen('php://output', 'r'), Logger::EMERGENCY)));
 
         $pubnub->addListener(new class($streaming) extends SubscribeCallback {
 

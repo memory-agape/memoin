@@ -1,6 +1,6 @@
 <?php
 
-namespace Memoin\Exchangers\BitFlyer;
+namespace Memoin\Exchangers\bitFlyer;
 use Memoin\API\Adapters\BaseAdapter;
 use Memoin\Enums\Currency;
 

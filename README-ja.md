@@ -18,9 +18,9 @@ composer require memory-agape/memoin
 
 # Supports
 
-- 現在はBitFlyerのAPIのみ対応しています。（将来的には他の取引所のAPIも対応する予定です。）
+- 現在はbitFlyerのAPIのみ対応しています。（将来的には他の取引所のAPIも対応する予定です。）
 - ストリーミングに対応しています。
-- See: https://lightning.bitflyer.jp/docs
+- See: https://lightning.bitFlyer.jp/docs
 
 # Examples
 
