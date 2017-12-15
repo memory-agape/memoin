@@ -33,6 +33,28 @@ composer require memory-agape/memoin
 - 募金ぜひ欲しいです！開発の支えになります。
 - 開発者のビットコインアドレスは **321KChd61h3kp7XfkGz6rWiSNdhZiJMxSf** です。
 
+# Methods
+MemoinのAPIを示します。Memoinでは極力書くコード量を減らすような仕組みとなっており、
+それぞれの取引所において送るパラメータのみが異なる状態となっています。
+
+```php
+$exchanger = (new Memoin\Core\Exchanger('Exchanger Name(bitFlyer/Coincheck/Zaif)', new Memoin\Credentials\Credential([
+    'API_KEY'   => 'API Key',
+    'API_SECRET' => 'API Secret',
+])))->getExchanger();
+
+// send with GET method
+$exchanger->get($apiUriHere);
+
+
+// send with POST method
+$exchanger->post($apiUriHere, $extendHeadersHere, $bodyHere);
+
+// call by any method for RESTful APIs (PUT, DELETE and so on)
+$exchanger->call($apiURIHere, $methodHere, $authHere, $extendHeadersHere, $bodyHere);
+
+```
+
 # Issues and Pull requests
 
 - 追加機能がほしかったり、バグを修正したよというプルリクエストは大歓迎です。ぜひ開発にご協力ください。
