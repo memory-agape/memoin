@@ -19,11 +19,6 @@ class Exchanger
             throw new \RuntimeException('Not found exchanger controller "' . $exchangerName . '"');
         }
 
-        $path = __DIR__ . '/../Exchangers/' . $exchangerName . '/Adapter.php';
-        if (!is_file($path)) {
-            throw new \RuntimeException('Not found exchanger adapter "' . $exchangerName . '"');
-        }
-
         // Load exchanger
         require_once $path;
 
