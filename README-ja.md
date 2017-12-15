@@ -22,6 +22,7 @@ composer require memory-agape/memoin
 - ストリーミングに対応しています。(bitFlyerとZaifのみ)
 - See: https://lightning.bitFlyer.jp/docs
 - See: https://coincheck.com/ja/documents/exchange/api
+- See: https://corp.zaif.jp/api-docs/
 
 # Examples
 
