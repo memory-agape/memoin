@@ -31,14 +31,19 @@ class Currency
     const ETH_CLASSIC = 'ETH_CLASSIC';
 
     /**
-     * Light Coin
+     * Lite Coin
      */
     const LTC = 'LTC';
 
     /**
-     * Bit coin cash
+     * BitCoin cash
      */
     const BCH = 'BCH';
+
+    /**
+     * Mona
+     */
+    const MONA = 'MONA';
 
     public static function getNames () {
         return (new \ReflectionClass(__CLASS__))->getConstants();

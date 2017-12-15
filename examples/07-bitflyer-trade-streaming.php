@@ -15,5 +15,5 @@ include __DIR__ . '/vendor/autoload.php';
         print_r($message);
     }
 
-}, Memoin\Enums\Currency::BTC);
+}, Memoin\Enums\Currency::MONA, Memoin\Enums\Currency::JPY);
 

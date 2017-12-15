@@ -34,7 +34,7 @@ class Controller extends BaseController
 
 
     /**
-     * Call any Coincheck APIs
+     * Call any Zaif APIs
      *
      * @param string $api The API
      * @param string $method GET, POST and other method
@@ -96,7 +96,7 @@ class Controller extends BaseController
     }
 
     /**
-     * Show realtime streaming for Coincheck
+     * Show realtime streaming for Zaif
      *
      * @param Streaming $streaming Set callback class
      * @param string $name trade to currency name
@@ -105,7 +105,25 @@ class Controller extends BaseController
      */
     public function streaming(Streaming $streaming, $name, $from = Currency::JPY)
     {
-        throw new \RuntimeException('Incomplete yet.');
+        \Ratchet\Client\connect('wss://ws.zaif.jp:8888/stream?currency_pair=' . strtolower($name . '_' . $from))->then(function($connection) use ($streaming) {
+            $streaming->connect();
+            $connection->on('message', function($message) use ($connection, $streaming) {
+                $data = json_decode($message);
+                $streaming->receive($data);
+            });
+
+            $connection->on('close', function($message) use ($connection, $streaming) {
+                $streaming->disconnect();
+            });
+
+            $connection->on('error', function($message) use ($connection, $streaming) {
+                $streaming->error();
+            });
+
+        }, function ($e) {
+            echo "Could not connect: " . $e->getMessage() . "\n";
+        });
+
     }
 
 }
