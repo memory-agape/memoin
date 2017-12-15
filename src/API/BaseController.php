@@ -51,16 +51,6 @@ class BaseController
     }
 
     /**
-     * get API Adapter
-     *
-     * @return BaseAdapter
-     */
-    public function getAdapter()
-    {
-        return new BaseAdapter($this);
-    }
-
-    /**
      * Set credential
      *
      * @param Credential $credential credential
