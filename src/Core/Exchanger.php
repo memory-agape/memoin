@@ -12,16 +12,20 @@ class Exchanger
      * @param $exchangerName
      * @param Credential|null $credential
      */
-    public function __construct ($exchangerName, Credential $credential = null)
+    public function __construct($exchangerName, Credential $credential = null)
     {
         $path = __DIR__ . '/../Exchangers/' . $exchangerName . '/Controller.php';
-        if (!is_file($path)) throw new \RuntimeException('Not found exchanger controller "' . $exchangerName . '"');
+        if (!is_file($path)) {
+            throw new \RuntimeException('Not found exchanger controller "' . $exchangerName . '"');
+        }
 
         $path = __DIR__ . '/../Exchangers/' . $exchangerName . '/Adapter.php';
-        if (!is_file($path)) throw new \RuntimeException('Not found exchanger adapter "' . $exchangerName . '"');
+        if (!is_file($path)) {
+            throw new \RuntimeException('Not found exchanger adapter "' . $exchangerName . '"');
+        }
 
         // Load exchanger
-        require $path;
+        require_once $path;
 
         $exchangerName = '\\Memoin\\Exchangers\\' . $exchangerName . '\\Controller';
         $this->exchanger = new $exchangerName();

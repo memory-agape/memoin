@@ -18,7 +18,7 @@ class Manipulator
      * @param array $exchangers
      * @throws Exceptions\Manipulator
      */
-    public function __construct (array $exchangers)
+    public function __construct(array $exchangers)
     {
         foreach ($exchangers as $exchanger) {
             if (!($exchanger instanceof Exchanger)) throw new Exceptions\Manipulator('Does not instance of Exchanger');
@@ -35,14 +35,15 @@ class Manipulator
      * @throws Exceptions\Credential
      * @throws Exceptions\Manipulator
      */
-    public function __call ($name, $arguments)
+    public function __call($name, $arguments)
     {
-
         if (preg_match('/\A(get)([A-Z].*)\z/', $name, $matches)) {
             $action = trim($matches[1]);
             $currency = strtoupper($matches[2]);
             $definedCurrencies = Currency::getNames();
-            if (!isset($definedCurrencies[$currency])) throw new Exceptions\Manipulator('Undefined currency "' . $currency . '"');
+            if (!isset($definedCurrencies[$currency])) {
+                throw new Exceptions\Manipulator('Undefined currency "' . $currency . '"');
+            }
 
             // get defined currencies
             switch (true) {

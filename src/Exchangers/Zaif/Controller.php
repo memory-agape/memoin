@@ -21,8 +21,12 @@ class Controller extends BaseController
      */
     public function setCredential(Credential $credential)
     {
-        if (!$credential->hasApiKey()) throw new Exceptions\Credential('Undefined API Key for credential');
-        if (!$credential->hasApiSecret()) throw new Exceptions\Credential('Undefined API Secret for credential');
+        if (!$credential->hasApiKey()) {
+            throw new Exceptions\Credential('Undefined API Key for credential');
+        }
+        if (!$credential->hasApiSecret()) {
+            throw new Exceptions\Credential('Undefined API Secret for credential');
+        }
         parent::setCredential($credential);
         return $this;
     }

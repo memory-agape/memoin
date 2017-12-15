@@ -21,8 +21,12 @@ class Controller extends BaseController
      */
     public function setCredential(Credential $credential)
     {
-        if (!$credential->hasApiKey()) throw new Exceptions\Credential('Undefined API Key for credential');
-        if (!$credential->hasApiSecret()) throw new Exceptions\Credential('Undefined API Secret for credential');
+        if (!$credential->hasApiKey()) {
+            throw new Exceptions\Credential('Undefined API Key for credential');
+        }
+        if (!$credential->hasApiSecret()) {
+            throw new Exceptions\Credential('Undefined API Secret for credential');
+        }
         parent::setCredential($credential);
         return $this;
     }
@@ -50,7 +54,9 @@ class Controller extends BaseController
             'Content-Type' => 'application/json',
         ];
         if ($auth) {
-            if (empty($this->credential)) throw new Exceptions\Credential('You must be set credential which use method "$class->setCredential" or set first argument from constructor');
+            if (empty($this->credential)) {
+                throw new Exceptions\Credential('You must be set credential which use method "$class->setCredential" or set first argument from constructor');
+            }
             $timestamp = time();
             $text = $timestamp . rtrim(self::ENDPOINT, '/') . $api . ($body ?? '');
             $headers = array_merge($headers, [
