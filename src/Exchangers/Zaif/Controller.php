@@ -1,5 +1,5 @@
 <?php
-namespace Memoin\Exchangers\Coincheck;
+namespace Memoin\Exchangers\Zaif;
 
 use Memoin\API\BaseController;
 use Memoin\API\Streaming;
@@ -10,7 +10,7 @@ use Memoin\Exceptions;
 class Controller extends BaseController
 {
 
-    const ENDPOINT = 'https://coincheck.com/';
+    const ENDPOINT = 'https://api.zaif.jp/tapi';
 
     /**
      * Set credential
@@ -46,17 +46,23 @@ class Controller extends BaseController
      */
     public function call($api, $method, $auth = true, array $extendHeaders = [], $body = null)
     {
-        $headers = [
-            'Content-Type' => 'application/json',
-        ];
+        $headers = [];
+        $timestamp = time();
+
+        $body .= '&nonce=' . $timestamp;
+        parse_str($body, $parsedUrl);
+        $body = [];
+        foreach ($parsedUrl as $key => $value) {
+            $body[] = $key . '=' . rawurlencode($value);
+        }
+        $body = implode('&', $body);
         if ($auth) {
-            if (empty($this->credential)) throw new Exceptions\Credential('You must be set credential which use method "$class->setCredential" or set first argument from constructor');
-            $timestamp = time();
-            $text = $timestamp . rtrim(self::ENDPOINT, '/') . $api . ($body ?? '');
+            if (empty($this->credential)) {
+                throw new Exceptions\Credential('You must be set credential which use method "$class->setCredential" or set first argument from constructor');
+            }
             $headers = array_merge($headers, [
-                'ACCESS-KEY' => $this->credential->getApiKey(),
-                'ACCESS-NONCE' => $timestamp,
-                'ACCESS-SIGNATURE' => hash_hmac('sha256', $text, $this->credential->getApiSecret()),
+                'key' => $this->credential->getApiKey(),
+                'sign' => hash_hmac('sha512', $body, $this->credential->getApiSecret()),
             ]);
         }
         $headers = array_merge($headers, $extendHeaders ?? []);
@@ -86,7 +92,7 @@ class Controller extends BaseController
      */
     public function get($api, array $extendHeaders = [], $body = null)
     {
-        return $this->call($api, 'GET', true, $extendHeaders, is_array($body) ? http_build_query($body) : $body);
+        throw new \RuntimeException('Zaif API does not support GET method');
     }
 
     /**

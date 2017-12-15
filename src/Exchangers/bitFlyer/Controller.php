@@ -58,7 +58,7 @@ class Controller extends BaseController
      * @return Object return json decoded object
      * @throws Exceptions\Credential
      */
-    public function call ($api, $method, $auth = true, array $extendHeaders = [], $body = null)
+    public function call($api, $method, $auth = true, array $extendHeaders = [], $body = null)
     {
         $headers = [
             'Content-Type' => 'application/json',
@@ -85,7 +85,7 @@ class Controller extends BaseController
      * @param array|null $body send body
      * @return Object return json decoded object
      */
-    public function post ($api, array $extendHeaders = [], $body = null)
+    public function post($api, array $extendHeaders = [], $body = null)
     {
         return $this->call($api, 'POST', true, $extendHeaders, is_array($body) ? json_encode($body) : $body);
     }
@@ -98,7 +98,7 @@ class Controller extends BaseController
      * @param array|null $body send body
      * @return Object return json decoded object
      */
-    public function get ($api, array $extendHeaders = [], $body = null)
+    public function get($api, array $extendHeaders = [], $body = null)
     {
         return $this->call($api, 'GET', true, $extendHeaders, is_array($body) ? json_encode($body) : $body);
     }
@@ -111,7 +111,7 @@ class Controller extends BaseController
      * @param string $from trade from currency name
      * @return void
      */
-    public function streaming (Streaming $streaming, $name, $from = Currency::JPY)
+    public function streaming(Streaming $streaming, $name, $from = Currency::JPY)
     {
 
         $pnconf = new PNConfiguration();

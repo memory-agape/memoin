@@ -18,7 +18,7 @@ composer require memory-agape/memoin
 
 # Supports
 
-- 現在はbitFlyerとCoincheckのAPIのみ対応しています。（将来的には他の取引所のAPIも対応する予定です。）
+- 現在はbitFlyer, CoincheckとZaifのAPIのみ対応しています。（将来的には他の取引所のAPIも対応する予定です。）
 - ストリーミングに対応しています。
 - See: https://lightning.bitFlyer.jp/docs
 - See: https://coincheck.com/ja/documents/exchange/api
