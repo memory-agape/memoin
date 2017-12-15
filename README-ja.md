@@ -53,6 +53,16 @@ $exchanger->post($apiUriHere, $extendHeadersHere, $bodyHere);
 // call by any method for RESTful APIs (PUT, DELETE and so on)
 $exchanger->call($apiURIHere, $methodHere, $authHere, $extendHeadersHere, $bodyHere);
 
+// streaming service
+$exchanger->streaming(new class extends Memoin\API\Streaming {
+  
+      public function receive ($message) {
+  
+          // received streaming message
+          print_r($message);
+      }
+  
+  }, Memoin\Enums\Currency::MONA, Memoin\Enums\Currency::JPY);
 ```
 
 # Issues and Pull requests
