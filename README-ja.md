@@ -32,7 +32,7 @@ composer require memory-agape/memoin
 # Donations
 
 - 募金ぜひ欲しいです！開発の支えになります。
-- 開発者のビットコインアドレスは **321KChd61h3kp7XfkGz6rWiSNdhZiJMxSf** です。
+- 開発者のビットコインアドレスは **321KChd61h3kp7XfkGz6rWiSNdhZiJMxSf** で、モナコインアドレスは (**MQoKahJCjsBsgZtZSqCTCewgADiyvd9a3B**)です。ご支援いただけたら開発がんばります👌
 
 # Methods
 MemoinのAPIを示します。Memoinでは極力書くコード量を減らすような仕組みとなっており、

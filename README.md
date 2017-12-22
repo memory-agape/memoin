@@ -33,7 +33,7 @@ composer require memory-agape/memoin
 # Donations
 
 - Donations are always welcome. They help me develop.
-- Please make remittance to my bitcoin address (**321KChd61h3kp7XfkGz6rWiSNdhZiJMxSf**)
+- Please make remittance to my Bitcoin address (**321KChd61h3kp7XfkGz6rWiSNdhZiJMxSf**) or MONA Coin address (**MQoKahJCjsBsgZtZSqCTCewgADiyvd9a3B**)
 
 # Methods
 Below code are Memoin APIs. Memoin is optimized to coding/typing.
