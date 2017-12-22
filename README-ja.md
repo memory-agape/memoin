@@ -48,7 +48,7 @@ $exchanger->get($apiUriHere);
 
 
 // send with POST method
-$exchanger->post($apiUriHere, $extendHeadersHere, $bodyHere);
+$exchanger->post($apiUriHere, $bodyHere, $extendHeadersHere);
 
 // call by any method for RESTful APIs (PUT, DELETE and so on)
 $exchanger->call($apiURIHere, $methodHere, $authHere, $extendHeadersHere, $bodyHere);
