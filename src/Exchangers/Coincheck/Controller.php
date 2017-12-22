@@ -31,12 +31,6 @@ class Controller extends BaseController
         return $this;
     }
 
-    public function getAdapter()
-    {
-        return new Adapter($this);
-    }
-
-
     /**
      * Call any Coincheck APIs
      *
