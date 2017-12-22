@@ -19,11 +19,12 @@ composer require memory-agape/memoin
 
 # Supports
 
-- bitFlyer, Coincheck and Zaif (Will support other exchangers)
-- Supports Streaming API (bitFlyer, Coincheck and Zaif)
+- bitFlyer, Coincheck, bitbank and Zaif (Will support other exchangers)
+- Supports Streaming API (bitFlyer, Coincheck, bitbank and Zaif)
 - See: https://lightning.bitFlyer.com/docs?lang=en
 - See: https://coincheck.com/ja/documents/exchange/api
 - See: https://corp.zaif.jp/api-docs/
+- See: https://docs.bitbank.cc/
 
 # Examples
 
