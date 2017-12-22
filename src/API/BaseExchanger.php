@@ -75,15 +75,13 @@ class BaseExchanger
     public function call($api, $method, $auth = true, array $extendHeaders = [], $body = null)
     {
         try {
-
             $options = [
                 'headers' => $extendHeaders ?? [],
             ];
-
-            if (is_string($body)) $options['body'] = $body;
-
+            if (is_string($body)) {
+                $options['body'] = $body;
+            }
             $response = $this->client->request($method, $api, $options);
-
         } catch (\GuzzleHttp\Exception\ClientException $e) {
             throw new Exceptions\API($e->getMessage());
         }
