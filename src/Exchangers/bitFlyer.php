@@ -1,7 +1,7 @@
 <?php
-namespace Memoin\Exchangers\bitFlyer;
+namespace Memoin\Exchangers;
 
-use Memoin\API\BaseController;
+use Memoin\API\BaseExchanger;
 use Memoin\API\Streaming;
 use Memoin\Credentials\Credential;
 use Memoin\Enums\Currency;
@@ -20,7 +20,7 @@ use PubNub\Enums\PNStatusCategory;
 use PubNub\Callbacks\SubscribeCallback;
 use PubNub\PNConfiguration;
 
-class Controller extends BaseController
+class bitFlyer extends BaseExchanger
 {
 
     const ENDPOINT = 'https://api.bitFlyer.jp/';
@@ -87,7 +87,7 @@ class Controller extends BaseController
      * @param array|null $body send body
      * @return Object return json decoded object
      */
-    public function post($api, array $extendHeaders = [], $body = null)
+    public function post($api, $body = null, array $extendHeaders = [])
     {
         return $this->call($api, 'POST', true, $extendHeaders, is_array($body) ? json_encode($body) : $body);
     }
@@ -100,7 +100,7 @@ class Controller extends BaseController
      * @param array|null $body send body
      * @return Object return json decoded object
      */
-    public function get($api, array $extendHeaders = [], $body = null)
+    public function get($api, $body = null, array $extendHeaders = [])
     {
         return $this->call($api, 'GET', true, $extendHeaders, is_array($body) ? json_encode($body) : $body);
     }

@@ -1,13 +1,13 @@
 <?php
-namespace Memoin\Exchangers\Zaif;
+namespace Memoin\Exchangers;
 
-use Memoin\API\BaseController;
+use Memoin\API\BaseExchanger;
 use Memoin\API\Streaming;
 use Memoin\Credentials\Credential;
 use Memoin\Enums\Currency;
 use Memoin\Exceptions;
 
-class Controller extends BaseController
+class Zaif extends BaseExchanger
 {
 
     const ENDPOINT = 'https://api.zaif.jp/tapi';
@@ -70,25 +70,24 @@ class Controller extends BaseController
     /**
      * Easy to use as call method (set POST method)
      *
-     * @param string $api The API
-     * @param array $extendHeaders extend headers for request (or override)
-     * @param array|null $body send body
+     * @param string|array|null $api The body
+     * @param array|null $body No required parameter
+     * @param array $extendHeaders No required parameter
      * @return Object return json decoded object
      */
-    public function post($api, array $extendHeaders = [], $body = null)
+    public function post($api, $body = null, array $extendHeaders = [])
     {
-        return $this->call($api, 'POST', true, $extendHeaders, is_array($body) ? http_build_query($body) : $body);
+        return $this->call('', 'POST', true, $extendHeaders, is_array($api) ? http_build_query($api) : $api);
     }
 
     /**
      * Easy to use as call method (set GET method)
      *
-     * @param string $api The API
-     * @param array $extendHeaders extend headers for request (or override)
+     * @param string|array|null $api The API
      * @param array|null $body send body
-     * @return Object return json decoded object
+     * @param array $extendHeaders extend headers for request (or override)
      */
-    public function get($api, array $extendHeaders = [], $body = null)
+    public function get($api, $body = null, array $extendHeaders = [])
     {
         throw new \RuntimeException('Zaif API does not support GET method');
     }

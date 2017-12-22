@@ -1,10 +1,10 @@
 <?php
 
 // include autoloader by composer
-include __DIR__ . '/vendor/autoload.php';
+include __DIR__ . '/../vendor/autoload.php';
 
 // create exchanger instance (authorization is optional)
-(new Memoin\Core\Exchanger('Zaif'))
+(new Memoin\Core\Exchanger(Memoin\Exchangers\Zaif::class))
     ->getExchanger()
     ->streaming(new class extends Memoin\API\Streaming {
 

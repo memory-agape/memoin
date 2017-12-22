@@ -38,7 +38,7 @@ composer require memory-agape/memoin
 Below code are Memoin APIs. Memoin is optimized to coding/typing.
 
 ```php
-$exchanger = (new Memoin\Core\Exchanger('Exchanger Name(bitFlyer/Coincheck/Zaif)', new Memoin\Credentials\Credential([
+$exchanger = (new Memoin\Core\Exchanger(Memoin\Exchangers\bitFlyer::class, new Memoin\Credentials\Credential([
     'API_KEY'   => 'API Key',
     'API_SECRET' => 'API Secret',
 ])))->getExchanger();

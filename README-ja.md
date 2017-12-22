@@ -38,7 +38,7 @@ MemoinのAPIを示します。Memoinでは極力書くコード量を減らす�
 それぞれの取引所において送るパラメータのみが異なる状態となっています。
 
 ```php
-$exchanger = (new Memoin\Core\Exchanger('Exchanger Name(bitFlyer/Coincheck/Zaif)', new Memoin\Credentials\Credential([
+$exchanger = (new Memoin\Core\Exchanger(Memoin\Exchangers\bitFlyer::class, new Memoin\Credentials\Credential([
     'API_KEY'   => 'API Key',
     'API_SECRET' => 'API Secret',
 ])))->getExchanger();

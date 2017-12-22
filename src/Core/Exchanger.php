@@ -14,15 +14,7 @@ class Exchanger
      */
     public function __construct($exchangerName, Credential $credential = null)
     {
-        $path = __DIR__ . '/../Exchangers/' . $exchangerName . '/Controller.php';
-        if (!is_file($path)) {
-            throw new \RuntimeException('Not found exchanger controller "' . $exchangerName . '"');
-        }
 
-        // Load exchanger
-        require_once $path;
-
-        $exchangerName = '\\Memoin\\Exchangers\\' . $exchangerName . '\\Controller';
         $this->exchanger = new $exchangerName();
 
         if ($credential !== null) {
@@ -31,7 +23,7 @@ class Exchanger
     }
 
     /**
-     * @return \Memoin\API\BaseController
+     * @return \Memoin\API\BaseExchanger
      */
     public function getExchanger () {
         return $this->exchanger;

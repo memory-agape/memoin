@@ -4,7 +4,7 @@ use Memoin\Exceptions;
 use Memoin\Credentials\Credential;
 use Memoin\Enums\Currency;
 
-class BaseController
+class BaseExchanger
 {
 
     /**
@@ -52,7 +52,7 @@ class BaseController
      * Set credential
      *
      * @param Credential $credential credential
-     * @return BaseController
+     * @return BaseExchanger
      */
     public function setCredential(Credential $credential)
     {
@@ -97,27 +97,27 @@ class BaseController
     /**
      * Easy to use as call method (set GET method)
      *
-     * @param string $api The API
-     * @param array $extendHeaders extend headers for request (or override)
+     * @param string|array|null $api The API
      * @param array|null $body send body
+     * @param array $extendHeaders extend headers for request (or override)
      * @return mixed return json decoded object
      */
-    public function get($api, array $extendHeaders = [], $body = null)
+    public function get($api, $body = null, array $extendHeaders = [])
     {
-        return $this->call($api, 'GET', true, $extendHeaders, $body);
+        return $this->call($api ?? '', 'GET', true, $extendHeaders, $body);
     }
 
     /**
      * Easy to use as call method (set POST method)
      *
-     * @param string $api The API
-     * @param array $extendHeaders extend headers for request (or override)
+     * @param string|array|null $api The API
      * @param array|null $body send body
+     * @param array $extendHeaders extend headers for request (or override)
      * @return mixed return json decoded object
      */
-    public function post($api, array $extendHeaders = [], $body = null)
+    public function post($api, $body = null, array $extendHeaders = [])
     {
-        return $this->call($api, 'POST', true, $extendHeaders, $body);
+        return $this->call($api ?? '', 'POST', true, $extendHeaders, $body);
     }
 
     /**
