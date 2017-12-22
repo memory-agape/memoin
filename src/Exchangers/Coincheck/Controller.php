@@ -101,11 +101,40 @@ class Controller extends BaseController
      * @param Streaming $streaming Set callback class
      * @param string $name trade to currency name
      * @param string $from trade from currency name
+     * @param string $channel channel name (orderbook or trades)
      * @return void
      */
-    public function streaming(Streaming $streaming, $name, $from = Currency::JPY)
+    public function streaming(Streaming $streaming, $name, $from = Currency::JPY, $channel = 'trades')
     {
-        throw new \RuntimeException('Incomplete yet.');
+        \Ratchet\Client\connect('wss://ws-api.coincheck.com/')->then(function($connection) use (
+            $streaming,
+            $name,
+            $from,
+            $channel
+        ) {
+            $streaming->connect();
+
+            $connection->send(json_encode([
+                'type' => 'subscribe',
+                'channel' => strtolower($name . '_' . $from . '-' . $channel),
+            ]));
+
+            $connection->on('message', function($message) use ($connection, $streaming) {
+                $data = json_decode($message);
+                $streaming->receive($data);
+            });
+
+            $connection->on('close', function($message) use ($connection, $streaming) {
+                $streaming->disconnect();
+            });
+
+            $connection->on('error', function($message) use ($connection, $streaming) {
+                $streaming->error();
+            });
+
+        }, function ($e) {
+            echo "Could not connect: " . $e->getMessage() . "\n";
+        });
     }
 
 }
